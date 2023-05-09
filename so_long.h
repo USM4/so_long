@@ -16,4 +16,15 @@
 #include<stdlib.h>
 #include <unistd.h>
 #include "get_next_line.h"
+#include "./mlx_linux/mlx.h"
+// #include "../mlx_linux/mlx_int.h"
+// struct map_settings
+// {
+//     char    **map;
+//     int     count;
+// }  for_map;
+
+
+
+
 #endif
