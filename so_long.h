@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:53:41 by oredoine          #+#    #+#             */
-/*   Updated: 2023/03/20 00:46:58 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/13 21:51:57 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,10 @@
 #include<stdlib.h>
 #include <unistd.h>
 #include "get_next_line.h"
-#include "./mlx_linux/mlx.h"
-// #include "../mlx_linux/mlx_int.h"
-// struct map_settings
-// {
-//     char    **map;
-//     int     count;
-// }  for_map;
 
+extern void ft_perror(void);
 
-
-
+typedef struct dyali{
+    int size_line;
+}t_dyali;
 #endif

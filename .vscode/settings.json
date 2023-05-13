@@ -1,4 +1,7 @@
 {
     "prettier.bracketSameLine": false,
-    "prettier.useTabs": false
+    "prettier.useTabs": false,
+    "files.associations": {
+        "so_long.h": "c"
+    }
 }
