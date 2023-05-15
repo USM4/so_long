@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:04:29 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/15 01:19:25 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/15 23:42:04 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,37 @@ char *ft_map_contains(char **lines)
 {
 	int i;
 	int j;
-	int counter;
+	int counter_p;
+	int counter_c;
+	int counter_e;
 	
 	i = 0;
-	j = 0;
-	counter = 0; 
-		
-		while(lines[i] != NULL)
-		{
-			if(lines[i][j] == 'P' || lines[i][j] == 'C' || lines[i][j] == 'E')
-			{
-				counter++;
-				j++;
-			}
-			i++;
-		}
-
-	printf("%d", j);	
-	if(counter != 3)
+	counter_c = 0;
+	counter_p = 0;
+	counter_e = 0;
+	while(lines[i] != NULL)
 	{
+		j = 0;
+		while (lines[i][j])
+		{	
+			if(lines[i][j] == 'P')
+				counter_p++;
+			else if(lines[i][j] == 'C')
+				counter_c++;
+			else if(lines[i][j] == 'E')
+				counter_e++;
+			j++;
+		}
+	i++;
+	} 
+	if(counter_c == 0 || counter_e != 1 || counter_p != 1)
 		ft_perror();
-	}
 	return("KHDAMA");
+}
+
+void ft_valip_path()
+{
+	
 }
 
 int main(int ac, char *argv[])
