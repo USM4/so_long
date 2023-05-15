@@ -1,63 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   ft_check_walls.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/18 21:34:02 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/14 22:34:48 by oredoine         ###   ########.fr       */
+/*   Created: 2023/05/14 16:51:09 by oredoine          #+#    #+#             */
+/*   Updated: 2023/05/14 22:34:16 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
-
-void ft_perror(void)
-{
-	perror("INVALID MAP");
-	exit(1);
-}
-
-void	ft_clean(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-}
-
-int ft_count_line(int file)
+char *ft_check_fl_lines(char *line)
 {
 	int i;
 	i = 0;
-	char *line = get_next_line(file);
-	while (line != NULL)
+
+	while(line[i] != '\0' && line[i] != '\n')
 	{
-		line = get_next_line(file);
+		if(line[i] != '1')
+		ft_perror();
 		i++;
 	}
-	return(i);
+	return(line);
 }
 
-char **ft_rm_newline(char **lines)
+char **ft_check_middle_lines(char **lines)
 {
+	int len;
 	int i;
-	int length;
 
 	i = 0;
-	// printf("%d",length);
-	while(lines[i] != NULL)
+	len = ft_strlen(lines[i]);
+	while(lines[i])
 	{
-		length = ft_strlen(lines[i]);
-		if (lines[i][length - 1] == '\n')
-			lines[i][length - 1] = '\0';
+		if (lines[i][0] != '1' || lines[i][len - 2] != '1')
+			ft_perror();
 		i++;
 	}
 	return(lines);
+}
+
+int ft_is_rectangular(char **lines)
+{
+	int first;
+	int second;
+	int i;
+
+	i = 0;
+	first = ft_strlen(lines[i]) - 1;
+	i++;
+	while(lines[i] != NULL)
+	{
+		second = ft_strlen(lines[i]) - 1;
+		if (second != first)
+			ft_perror();
+		i++;
+	}
+	return(-1);
 }

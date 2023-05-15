@@ -1,27 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   map_contains.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 15:53:41 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/14 22:35:01 by oredoine         ###   ########.fr       */
+/*   Created: 2023/05/14 22:37:03 by oredoine          #+#    #+#             */
+/*   Updated: 2023/05/14 23:23:19 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-#include<stdio.h>
-#include<stdlib.h>
-#include <unistd.h>
-#include "get_next_line.h"
-extern void ft_perror(void);
-extern char	*ft_substr(char	*s, unsigned int start, size_t len);
-extern int ft_count_line(int file);
-extern char **ft_rm_newline(char **lines);
+#include "so_long.h"
 
-typedef struct pars{
-    int size_line;
-}t_pars;
-#endif
+int main ()

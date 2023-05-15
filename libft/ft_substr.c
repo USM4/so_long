@@ -6,11 +6,12 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:56:16 by oredoine          #+#    #+#             */
-/*   Updated: 2023/03/19 23:16:47 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/14 16:34:17 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 

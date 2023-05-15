@@ -6,90 +6,60 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:04:29 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/13 22:36:58 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/15 01:19:25 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int ft_count_line(int file)
+char *ft_map_contains(char **lines)
 {
 	int i;
-	i = 0;
-	char *line = get_next_line(file);
-	while (line != NULL)
-	{
-		line = get_next_line(file);
-		i++;
-	}
-	return(i);
-}
-
-// char **ft_pass_map(char **arr)
-
-// {
-// 	int i;
-// 	i = 0;
-// 	arr[i] = get_next_line(fd);
-// 	while (arr[i] != NULL)
-// 	{
-// 		i++;
-// 		arr[i] = get_next_line(fd);
-// 	}
-// 	return(arr);
-// }
-
-char *ft_check_fl_lines(char *line)
-{
-	int i;
-	i = 0;
-
-	while(line[i] != '\0' && line[i] != '\n')
-	{
-		if(line[i] != '1')
-		ft_perror();
-		i++;
-	}
-	return(line);
-}
-
-
-char **ft_check_middle_lines(char **line)
-
-{
-	int len;
-	int i;
+	int j;
+	int counter;
 	
 	i = 0;
-	len = ft_strlen(line[i]);
-	while(line[i])
+	j = 0;
+	counter = 0; 
+		
+		while(lines[i] != NULL)
+		{
+			if(lines[i][j] == 'P' || lines[i][j] == 'C' || lines[i][j] == 'E')
+			{
+				counter++;
+				j++;
+			}
+			i++;
+		}
+
+	printf("%d", j);	
+	if(counter != 3)
 	{
-		if (line[i][0] != '1' || line[i][len - 2] != '1')
-			ft_perror();
-		i++;
+		ft_perror();
 	}
-	return(line);
+	return("KHDAMA");
 }
 
 int main(int ac, char *argv[])
 {
 	// t_dyali game_dyali;
     int fd;
+	int i;
+	char **lines;
+
     if((fd = open(argv[1], O_RDONLY)) == -1)
         puts ("fd error");
 	if (ac != 2)
 	{
 		perror("Not enough args");
-		exit(1); 
+		exit(1);
 	}
-	char **lines;
 	lines = malloc(sizeof(char *) * ft_count_line(fd));
     if((fd = open(argv[1], O_RDONLY)) == -1)
         puts ("fd error");
-	int i;
 	i = 0;
-
 	lines[i] = get_next_line(fd);
+
 	if(!lines[i])
 	{
 		perror("empty file");
@@ -99,6 +69,10 @@ int main(int ac, char *argv[])
 	{
 		i++;
 		lines[i] = get_next_line(fd);
-	}
+	}	
+	lines = ft_rm_newline(lines);
+	// int h = ft_is_rectangular(lines);
+	
+	printf("%s",ft_map_contains(lines));
 	
 }
