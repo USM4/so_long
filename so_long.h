@@ -21,7 +21,9 @@ extern char	*ft_substr(char	*s, unsigned int start, size_t len);
 extern int ft_count_line(int file);
 extern char **ft_rm_newline(char **lines);
 
-typedef struct pars{
-    int size_line;
-}t_pars;
+typedef struct counters{
+	int counter_p;
+	int counter_c;
+	int counter_e;
+}t_count;
 #endif
