@@ -6,47 +6,19 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:04:29 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/15 23:42:04 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/19 00:32:16 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char *ft_map_contains(char **lines)
-{
-	int i;
-	int j;
-	t_count characters  = {0,0,0};
-	i = 0;
-	while(lines[i] != NULL)
-	{
-		j = 0;
-		while (lines[i][j])
-		{	
-			if(lines[i][j] == 'P')
-				characters.counter_p++; 
-			else if(lines[i][j] == 'C')
-				characters.counter_c++;
-			else if(lines[i][j] == 'E')
-				characters.counter_e++;
-			j++;
-		}
-	i++;
-	} 
-	if(characters.counter_c == 0 || characters.counter_e != 1 || characters.counter_p != 1)
-		{ft_perror();}
-	return("KHDAMA\n");
-}
 
-// void ft_valip_path()
-// {
-
-// }
 
 int main(int ac, char *argv[])
 {
     int fd;
 	int i;
+	t_data data;
 	char **lines;
 
     if((fd = open(argv[1], O_RDONLY)) == -1)
@@ -56,25 +28,34 @@ int main(int ac, char *argv[])
 		perror("Not enough args");
 		exit(1);
 	}
-	lines = malloc(sizeof(char *) * ft_count_line(fd));
+	data.height = ft_count_line(fd);
+	lines = malloc(sizeof(char *) * data.height);
     if((fd = open(argv[1], O_RDONLY)) == -1)
        { puts ("fd error");}
 	i = 0;
 	lines[i] = get_next_line(fd);
-
 	if(!lines[i])
 	{
 		perror("empty file");
 		exit(1);
 	}
+	data.width = ft_strlen(lines[i]);
 	while (lines[i] != NULL)
 	{
 		i++;
 		lines[i] = get_next_line(fd);
-	}	
-	lines = ft_rm_newline(lines);
+	}
+	// lines = ft_rm_newline(lines);
 	// int h = ft_is_rectangular(lines);
 	
-	printf("%s",ft_map_contains(lines));
-	
+	ft_map_contains(lines, &data);
+	i = 0;
+	char **map = ft_cpy_map(lines,data);
+	 ft_valid_path(map , &data);
+	i = 0;
+    while (map[i])
+    {
+        printf("%s\n",map[i]);
+		i++;
+    }
 }

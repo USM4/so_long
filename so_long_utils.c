@@ -6,13 +6,11 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 21:34:02 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/14 22:34:48 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/19 00:25:52 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-
 void ft_perror(void)
 {
 	perror("INVALID MAP");
@@ -60,4 +58,34 @@ char **ft_rm_newline(char **lines)
 		i++;
 	}
 	return(lines);
+}
+
+char **ft_cpy_map(char **lines, t_data data)
+{
+    char **cpy;
+    int i;
+	int j;
+
+    cpy = malloc(sizeof(char *) * data.height);
+    i = 0;
+	j = 0;
+	while (i < data.height)
+	{
+    	cpy[i] = malloc(sizeof(char ) * data.width);
+		i++;
+	}
+	i = 0;
+	while (lines[i])
+    {
+		j = 0;
+		while (lines[i][j] != '\0')
+		{
+			cpy[i][j] = lines[i][j];
+			j++;
+		}
+		cpy[i][j] = '\0';
+		i++;
+	}
+	cpy[i] = NULL;
+    return(cpy);
 }
