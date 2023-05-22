@@ -8,6 +8,10 @@
         "__bit_reference": "c",
         "algorithm": "c",
         "array": "c",
-        "ios": "c"
+        "ios": "c",
+        "bitset": "c",
+        "ostream": "c",
+        "istream": "c",
+        "locale": "c"
     }
 }

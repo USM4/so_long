@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:40:47 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/19 00:30:28 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/21 22:08:43 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static void	fill(char **map, t_count *count, int x, int y)
 {
-	// printf("map[%d][%d] = %c\n ", y, x, map[y][x]);
+	if (x < 0 || y < 0)
+		return ;
 	if (map[y][x] == '1' || map[y][x] == 'U' || map[y][x] == 'E')
 		return;
 	map[y][x] = 'U';

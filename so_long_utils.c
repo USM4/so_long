@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 21:34:02 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/19 00:25:52 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/21 23:56:41 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ char **ft_cpy_map(char **lines, t_data data)
     int i;
 	int j;
 
-    cpy = malloc(sizeof(char *) * data.height);
+    cpy = malloc(sizeof(char *) * (data.height + 1));
     i = 0;
 	j = 0;
 	while (i < data.height)
 	{
-    	cpy[i] = malloc(sizeof(char ) * data.width);
+    	cpy[i] = malloc(sizeof(char ) * (data.width + 1));
 		i++;
 	}
 	i = 0;
