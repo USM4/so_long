@@ -1,25 +1,23 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
 NAME = so_long
-imps = so_long.o so_long_utils.o get_next_line.o  get_next_line_utils.o map_contains.o valid_path.o
+HEADERS= ./includes/so_long.h ./includes/get_next_line.h
+SOURCES = ./src/main.o ./src/util/util.o ./src/gnl/get_next_line.o ./src/gnl/get_next_line_utils.o ./src/parsing/map_contains.o ./src/parsing/check_walls.o ./src/parsing/valid_path.o
 
 all : $(NAME)
 
-$(NAME) : $(imps)
-			# make -C ./libft
-			$(CC) $(CFLAGS) $(imps) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+$(NAME) : $(SOURCES)
+	$(CC) $(CFLAGS) $(SOURCES) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-%.o : %.c so_long.h
-	$(CC) $(CFLAGS)  -c $< -o $@
+%.o : %.c $(HEADERS)
+	$(CC) $(CFLAGS) -I./includes -c $< -o $@
 	# $(CC) -Imlx $(CFLAGS) -c $<
 
 clean :
-		make clean -C ./libft
-		rm -f $(imps)
+	rm -f $(SOURCES)
 
 fclean :
-		make clean -C ./libft
-		rm -f $(imps) $(NAME)
+	rm -f $(SOURCES) $(NAME)
 
 re : fclean all
 

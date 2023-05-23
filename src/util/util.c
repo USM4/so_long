@@ -6,11 +6,12 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 21:34:02 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/21 23:56:41 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/23 06:15:29 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 void ft_perror(void)
 {
 	perror("INVALID MAP");

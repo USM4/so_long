@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_walls.c                                   :+:      :+:    :+:   */
+/*   check_walls.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:51:09 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/14 22:34:16 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/23 08:17:49 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "so_long.h"
 
 char *ft_check_fl_lines(char *line)
 {
@@ -40,7 +42,7 @@ char **ft_check_middle_lines(char **lines)
 	return(lines);
 }
 
-int ft_is_rectangular(char **lines)
+void ft_is_rectangular(char **lines)
 {
 	int first;
 	int second;
@@ -56,5 +58,4 @@ int ft_is_rectangular(char **lines)
 			ft_perror();
 		i++;
 	}
-	return(-1);
 }
