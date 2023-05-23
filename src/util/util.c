@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 21:34:02 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/23 06:15:29 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:13:37 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	ft_clean(char **arr)
 	free(arr);
 }
 
-int ft_count_line(int file)
+int ft_count_line(int fd)
 {
 	int i;
 	i = 0;
-	char *line = get_next_line(file);
+	char *line = get_next_line(fd);
 	while (line != NULL)
 	{
-		line = get_next_line(file);
+		line = get_next_line(fd);
 		i++;
 	}
 	return(i);

@@ -1,19 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 18:59:11 by oredoine          #+#    #+#             */
-/*   Updated: 2022/11/16 14:49:56 by oredoine         ###   ########.fr       */
+/*   Created: 2023/05/23 14:52:47 by oredoine          #+#    #+#             */
+/*   Updated: 2023/05/23 14:53:12 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int a)
+#include "so_long.h"
+
+char	*ft_strnstr(const char *hay, const char *need, size_t len)
 {
-	if (a >= 48 && a <= 57)
-		return (1);
-	else
+	size_t	i;
+	size_t	j;
+	size_t	k;
+
+	i = 0;
+	j = 0;
+	k = 0;
+	if ((!hay || !need) && !len)
 		return (0);
+	if (need[0] == '\0')
+		return ((char *)hay);
+	while (hay[i] && i < len)
+	{
+		k = i;
+		while (hay[k++] == need[j++])
+		{
+			if (k > len)
+				return (0);
+			if (!need[j])
+				return ((char *)(hay) + i);
+		}
+		j = 0;
+		i++;
+	}
+	return (NULL);
 }

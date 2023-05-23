@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:19:01 by oredoine          #+#    #+#             */
-/*   Updated: 2022/12/30 03:12:35 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:23:03 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@
 # include<stdlib.h>
 # include<unistd.h>
 
-char	*ft_strjoin(char *s1, char *s2);
-int		bufferlenght(char *str);
-int		ft_strlen(const char *p);
-char	*ft_strdup(char *s1);
-char	*get_next_line(int fd);
-int		ft_buf_len(const char *p);
+extern char	    *ft_strjoin(char *s1, char *s2);
+extern int		bufferlenght(char *str);
+extern int		ft_strlen(const char *p);
+extern char	    *ft_strdup(char *s1);
+extern char	    *get_next_line(int fd);
+extern int		ft_buf_len(const char *p);
+extern int	    ft_strncmp( const char *s1, const char *s2, size_t n);
+
 #endif

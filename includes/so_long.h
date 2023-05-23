@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:53:41 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/23 08:57:01 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:53:22 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ typedef struct s_count{
 	int exit;
 }t_count;
 
+
+extern void	ft_clean(char **arr);
 extern void ft_perror(void);
+extern char	*ft_strnstr(const char *hay, const char *need, size_t len);
 extern char	*ft_substr(char	*s, unsigned int start, size_t len);
 extern void ft_is_rectangular(char **lines);
 extern char *ft_check_fl_lines(char *line);
@@ -58,5 +61,14 @@ extern void ft_map_contains(char **lines, t_data *data);
 extern char **ft_cpy_map(char **lines, t_data data);
 extern void ft_valid_path(char **map ,t_data *data);
 extern void ft_push_image(t_data *data, int height, int width);
+extern void ft_move_down(int keycode, t_data *data);
+extern void ft_move_up(int keycode, t_data *data);
+extern void ft_move_right(int keycode, t_data *data);
+extern void ft_move_left(int keycode, t_data *data);
+extern int ft_handle_keys_press(int keycode, t_data *data);
+extern void ft_push_image(t_data *data, int height, int width);
+extern int ft_destroy(t_data *data);
+extern void ft_close_window(int keycode, t_data *data);
+extern void ft_check_map_extension(char *file);
 
 #endif
