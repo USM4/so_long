@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:53:41 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/23 14:53:22 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:36:58 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ typedef struct s_exit {
 	int y;
 } t_exit;
 
+typedef struct s_assets {
+	void *wall_ptr;
+	void *coin_ptr;
+	void *lplayer_ptr;
+	void *rplayer_ptr;
+	void *exit_ptr;
+} t_assets;
+
 typedef struct s_data {
 	char 			**lines;
 	void 			*mlx_new_window;
@@ -40,7 +48,9 @@ typedef struct s_data {
 	int				height;
 	int				width;
 	t_orientation	facing;
+	t_assets		imgs;
 } t_data;
+
 
 typedef struct s_count{
 	int player;

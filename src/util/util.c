@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 21:34:02 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/23 15:13:37 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:00:16 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ int ft_count_line(int fd)
 	char *line = get_next_line(fd);
 	while (line != NULL)
 	{
+		if (i == 0)
+			free(line);
 		line = get_next_line(fd);
+		free(line);
 		i++;
 	}
 	return(i);

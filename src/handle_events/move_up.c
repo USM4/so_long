@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:25:52 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/23 12:28:17 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:06:34 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,13 @@ void ft_move_up(int keycode, t_data *data)
 				else if(data->lines[i - 1][j] == '1')
 					return;
 				else if (data->lines[i - 1][j] == 'E' && data->collectible == 0)
+				{
+					ft_clean(data->lines);
 					exit(0);
+				}
+			}
 			}
 			j++;			
 		}
 		i++;
-	}	
-}
+}	

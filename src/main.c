@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:04:29 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/23 15:11:36 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:53:26 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,18 @@ int	ft_open_map(char *filename)
 
 void ft_check_map_extension(char *file)
 {
-	if(!ft_strnstr(file, ".ber", ft_strlen(file)))
+	char *str = ".ber";
+	int len = ft_strlen(file);
+	int i = 3;
+	while (i >= 0)
 	{
-		perror("Your file has to be end with .ber");
-		exit(1);
+		if (file[len - 1] != str[i])
+		{
+			perror("Your file has to be end with .ber");
+			exit(1);
+		}
+		i--;
+		len--;
 	}
 }
 
@@ -67,6 +75,7 @@ void ft_fill_allocated(t_data *data , char	*filename)
 	}
 	
 }
+
 
 int main(int ac, char *argv[])
 {
