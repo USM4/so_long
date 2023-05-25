@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:28:42 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/25 18:36:14 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:21:49 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ void ft_move_down(t_data *data)
 {
 	int i;
 	int j;
-	int n;
 	
 	i = 0;
-	n = 0;
 	while (data->lines[i])
 	{
 		j = 0;
@@ -27,7 +25,6 @@ void ft_move_down(t_data *data)
 		{
 			if (data->lines[i][j] == 'P')
 			{
-				n = 1;
 				if(data->lines[i + 1][j] == '0' || data->lines[i + 1][j] == 'C')
 				{
 					if (data->lines[i + 1][j] == 'C')
@@ -44,9 +41,8 @@ void ft_move_down(t_data *data)
 					ft_clean(data->lines);
 					exit(0);
 				}
+				return ;
 			}
-			if (n == 1)
-				break;
 			j++;			
 		}
 		i++;

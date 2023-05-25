@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:24:52 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/25 18:36:02 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:21:07 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void ft_move_left(t_data *data)
 					ft_clean(data->lines);
 					exit(0);
 				}
+				return ;
 			}
 			j++;
 		}

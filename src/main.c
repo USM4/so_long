@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:04:29 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/25 18:40:58 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:23:55 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void ft_check_args(int ac)
 {
 	if (ac != 2)
 	{
-		perror("Not enough args");
+		perror("Wrong number of arguments");
 		exit(1);
 	}
 }
