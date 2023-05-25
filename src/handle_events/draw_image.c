@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:28:07 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/25 18:23:39 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:53:26 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@
 int ft_handle_keys_press(int keycode, t_data *data)
 {
 	mlx_clear_window(data->mlx, data->mlx_new_window);
-	if(keycode == 53)
-		ft_close_window(keycode, data);
+	if (keycode == 53)
+		ft_close_window();
 	else if (keycode == 123)
 	{
-		ft_move_left(keycode, data);
+		ft_move_left(data);
 		data->facing = LEFT;
 	}
 	else if (keycode == 124)
 	{
-		ft_move_right(keycode, data);
+		ft_move_right(data);
 		data->facing = RIGHT;
 	}
 	else if (keycode == 125)
-		ft_move_down(keycode, data);
+		ft_move_down(data);
 	else if (keycode == 126)
-		ft_move_up(keycode, data);
+		ft_move_up(data);
 	ft_push_image(data, data->width*55, data->height*55);
 	return 0;
 }

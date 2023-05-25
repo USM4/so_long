@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:53:41 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/25 18:19:03 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:37:46 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,14 @@ extern void ft_validate_map(char **lines, t_data *data);
 extern char **ft_cpy_map(char **lines, t_data data);
 extern void ft_valid_path(char **map ,t_data *data);
 extern void ft_push_image(t_data *data, int height, int width);
-extern void ft_move_down(int keycode, t_data *data);
-extern void ft_move_up(int keycode, t_data *data);
-extern void ft_move_right(int keycode, t_data *data);
-extern void ft_move_left(int keycode, t_data *data);
+extern void ft_move_down(t_data *data);
+extern void ft_move_up(t_data *data);
+extern void ft_move_right(t_data *data);
+extern void ft_move_left(t_data *data);
 extern int ft_handle_keys_press(int keycode, t_data *data);
 extern void ft_push_image(t_data *data, int height, int width);
 extern int ft_destroy(t_data *data);
-extern void ft_close_window(int keycode, t_data *data);
+extern void ft_close_window(void);
 extern void ft_check_map_extension(char *file);
 
 #endif

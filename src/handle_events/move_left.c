@@ -6,15 +6,14 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:24:52 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/24 17:04:35 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:36:02 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long.h"
 
-void ft_move_left(int keycode, t_data *data)
+void ft_move_left(t_data *data)
 {
-	(void)keycode;
 	int i;
 	int j;
 	

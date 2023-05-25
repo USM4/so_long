@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:31:25 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/23 14:23:31 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:36:56 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ int ft_destroy(t_data *data)
 	exit (0);
 }
 
-void ft_close_window(int keycode, t_data *data)
+void ft_close_window(void)
 {
-	(void)data;
-	(void)keycode;
 	exit(0);
 }
 
