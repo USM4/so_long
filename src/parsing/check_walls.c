@@ -6,41 +6,49 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:51:09 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/23 08:17:49 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:52:42 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char *ft_check_fl_lines(char *line)
+int	ft_horizontal_wall(char *line)
 {
 	int i;
-	i = 0;
 
-	while(line[i] != '\0' && line[i] != '\n')
-	{
-		if(line[i] != '1')
-		ft_perror();
+	i = 0;
+	while (line[i] && line[i] == '1')
 		i++;
-	}
-	return(line);
+	return (ft_strlen(line) == i);
 }
 
-char **ft_check_middle_lines(char **lines)
+void ft_vertical_lines(char **map)
 {
 	int len;
 	int i;
 
 	i = 0;
-	len = ft_strlen(lines[i]);
-	while(lines[i])
+	len = ft_strlen(map[i]);
+	while(map[i])
 	{
-		if (lines[i][0] != '1' || lines[i][len - 2] != '1')
+		if (map[i][0] != '1' || map[i][len - 1] != '1')
 			ft_perror();
 		i++;
 	}
-	return(lines);
 }
+
+void ft_check_entourage(char **map)
+{
+	int j;
+
+	j = 0;
+	while (map[j])
+		j++;
+	if (!ft_horizontal_wall(map[0]) || !ft_horizontal_wall(map[j - 1]))
+		ft_perror();
+	ft_vertical_lines(map);
+}
+
 
 void ft_is_rectangular(char **lines)
 {

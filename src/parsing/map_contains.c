@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 22:37:03 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/25 17:51:31 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 20:24:44 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,10 @@ void ft_validate_map(char **lines, t_data *data)
 	data->collectible = 0;
 	while(lines[i])
 	{
-		j = 0;
-		while (lines[i][j])
+		j = -1;
+		while (lines[i][j + 1])
 		{	
+			j++;
 			if(lines[i][j] == 'P')
 			{
 				data->player.x = j;
@@ -58,16 +59,21 @@ void ft_validate_map(char **lines, t_data *data)
 				characters.player++; 
 			}	
 			else if(lines[i][j] == 'C')
+			{
 				data->collectible++;
+			}
 			else if(lines[i][j] == 'E')
 			{
 				data->e.x = j;
 				data->e.y = i; 
 				characters.exit++;
 			}
-			j++;
+			else if(lines[i][j] == '1' || lines[i][j] == '0')
+				continue;
+			else
+				ft_perror();
 		}
-	i++;
+		i++;
 	}
 	ft_expected_errors(data, &characters);
 }

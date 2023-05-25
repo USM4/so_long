@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:53:41 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/25 18:37:46 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:44:44 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ extern void ft_perror(void);
 extern char	*ft_strnstr(const char *hay, const char *need, size_t len);
 extern char	*ft_substr(char	*s, unsigned int start, size_t len);
 extern void ft_is_rectangular(char **lines);
-extern char *ft_check_fl_lines(char *line);
-extern char **ft_check_middle_lines(char **lines);
+extern void ft_check_entourage(char **lines);
 extern int ft_count_line(int file);
 extern char **ft_rm_newline(char **lines);
 extern void ft_validate_map(char **lines, t_data *data);

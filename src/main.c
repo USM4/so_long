@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:04:29 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/25 19:23:55 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:45:08 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ int main(int ac, char *argv[])
 	ft_check_map_extension(argv[1]);
 	ft_make_map(&data, argv[1]);
 	data.lines = ft_rm_newline(data.lines);
+	ft_check_entourage(data.lines);
 	ft_is_rectangular(data.lines);
 	ft_validate_map(data.lines, &data);
 	map = ft_cpy_map(data.lines, data);
