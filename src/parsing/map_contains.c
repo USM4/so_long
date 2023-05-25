@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 22:37:03 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/23 06:33:09 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:51:31 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void ft_expected_errors(t_data *data, t_count *characters)
 	else if (characters->player != 1)
 		ft_player_error();
 }
-void ft_map_contains(char **lines, t_data *data)
+void ft_validate_map(char **lines, t_data *data)
 {
 	int i;
 	int j;

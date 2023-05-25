@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:04:29 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/24 15:53:26 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:21:12 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@ int	ft_open_map(char *filename)
 
 void ft_check_map_extension(char *file)
 {
-	char *str = ".ber";
-	int len = ft_strlen(file);
-	int i = 3;
-	while (i >= 0)
+	if (ft_strlen(file) > 4)
 	{
-		if (file[len - 1] != str[i])
+		if (!ft_strnstr(file + (ft_strlen(file) - 4), ".ber", 4))
 		{
-			perror("Your file has to be end with .ber");
-			exit(1);
+			perror("Wrong file extension");
+			exit(1);		
 		}
-		i--;
-		len--;
 	}
+	else
+	{
+		perror("Wrong file extension");
+		exit(1);		
+	}	
 }
 
 void ft_check_args(int ac)
@@ -50,7 +50,7 @@ void ft_check_args(int ac)
 		exit(1);
 	}
 }
-void ft_fill_allocated(t_data *data , char	*filename)
+void ft_make_map(t_data *data , char	*filename)
 {
 	int i;
 	int	fd;
@@ -60,6 +60,11 @@ void ft_fill_allocated(t_data *data , char	*filename)
 	data->height = ft_count_line(fd);
 	close(fd);
 	data->lines = malloc(sizeof(char *) * (data->height + 1));
+	if(!data->lines)
+	{
+		perror("MALLOC FAILURE");
+		exit(1);
+	}	
 	fd = ft_open_map(filename);
 	data->lines[i] = get_next_line(fd);
 	if (!data->lines[i])
@@ -79,15 +84,16 @@ void ft_fill_allocated(t_data *data , char	*filename)
 
 int main(int ac, char *argv[])
 {
-	t_data data;
+	t_data	data;
+	char	**map;
 
-	ft_check_map_extension(argv[1]);
 	ft_check_args(ac);
-	ft_fill_allocated(&data, argv[1]);
+	ft_check_map_extension(argv[1]);
+	ft_make_map(&data, argv[1]);
 	data.lines = ft_rm_newline(data.lines);
 	ft_is_rectangular(data.lines);
-	ft_map_contains(data.lines, &data);
-	char **map = ft_cpy_map(data.lines, data);
+	ft_validate_map(data.lines, &data);
+	map = ft_cpy_map(data.lines, data);
 	ft_valid_path( map, &data);
 	ft_clean(map);
 	data.mlx = mlx_init();

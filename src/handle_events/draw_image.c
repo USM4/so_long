@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:28:07 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/24 17:04:05 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:23:39 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void ft_xpm_files(t_data *data, int height, int width)
 	data->imgs.lplayer_ptr = mlx_xpm_file_to_image(data->mlx, "./assets/leftp.xpm", &width, &height);
 	data->imgs.rplayer_ptr = mlx_xpm_file_to_image(data->mlx, "./assets/pright.xpm", &width, &height);
 	data->imgs.exit_ptr = mlx_xpm_file_to_image(data->mlx, "./assets/exit.xpm", &width, &height);
-		if (!data->imgs.wall_ptr || !data->imgs.coin_ptr || !data->imgs.lplayer_ptr || !data->imgs.rplayer_ptr || !data->imgs.exit_ptr)
+	if (!data->imgs.wall_ptr || !data->imgs.coin_ptr || !data->imgs.lplayer_ptr || !data->imgs.rplayer_ptr || !data->imgs.exit_ptr)
 	{
 		perror("there is some problems in your xpm file");
 		exit(1);

@@ -13,7 +13,6 @@ $(NAME) : $(SOURCES)
 
 %.o : %.c $(HEADERS)
 	$(CC) $(CFLAGS) -I./includes -c $< -o $@
-	# $(CC) -Imlx $(CFLAGS) -c $<
 
 clean :
 	rm -f $(SOURCES)

@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:53:41 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/24 16:36:58 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:19:03 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <unistd.h>
 #include "get_next_line.h"
 
-typedef enum {TOP, RIGHT, DOWN, LEFT} t_orientation;
+typedef enum orientation {TOP, RIGHT, DOWN, LEFT} t_orientation;
 
 typedef struct s_point {
 	int x;
@@ -67,7 +67,7 @@ extern char *ft_check_fl_lines(char *line);
 extern char **ft_check_middle_lines(char **lines);
 extern int ft_count_line(int file);
 extern char **ft_rm_newline(char **lines);
-extern void ft_map_contains(char **lines, t_data *data);
+extern void ft_validate_map(char **lines, t_data *data);
 extern char **ft_cpy_map(char **lines, t_data data);
 extern void ft_valid_path(char **map ,t_data *data);
 extern void ft_push_image(t_data *data, int height, int width);
