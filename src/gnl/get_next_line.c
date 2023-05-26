@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 18:21:43 by oredoine          #+#    #+#             */
-/*   Updated: 2023/03/19 23:18:17 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/26 01:06:13 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,16 +122,3 @@ char	*get_next_line(int fd)
 	str = clean_sht(str);
 	return (tempo);
 }
-// int main()
-// {
-// 	int fd;
-// 	fd = open("txt.txt",O_RDONLY);
-// 	char *line;
-// 	line = get_next_line(fd);
-// 	while (line != NULL)
-// 	{
-// 		printf("%s",line);
-// 		line = get_next_line(fd);		
-// 	}
-	
-// }

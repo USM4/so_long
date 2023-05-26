@@ -6,17 +6,17 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 12:28:42 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/25 19:21:49 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/26 00:52:47 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_move_down(t_data *data)
+void	ft_move_down(t_data *data)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	while (data->lines[i])
 	{
@@ -25,7 +25,8 @@ void ft_move_down(t_data *data)
 		{
 			if (data->lines[i][j] == 'P')
 			{
-				if(data->lines[i + 1][j] == '0' || data->lines[i + 1][j] == 'C')
+				if (data->lines[i + 1][j] == '0' || \
+				data->lines[i + 1][j] == 'C')
 				{
 					if (data->lines[i + 1][j] == 'C')
 						data->collectible--;
@@ -34,16 +35,16 @@ void ft_move_down(t_data *data)
 					data->lines[i + 1][j] = 'P';
 					data->lines[i][j] = '0';
 				}
-				else if(data->lines[i + 1][j] == '1')
-					return;
-				else if(data->lines[i + 1][j] == 'E' && data->collectible == 0)
+				else if (data->lines[i + 1][j] == '1')
+					return ;
+				else if (data->lines[i + 1][j] == 'E' && data->collectible == 0)
 				{
 					ft_clean(data->lines);
 					exit(0);
 				}
 				return ;
 			}
-			j++;			
+			j++;
 		}
 		i++;
 	}	

@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 16:51:09 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/25 19:52:42 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/26 00:53:49 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_horizontal_wall(char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line[i] && line[i] == '1')
@@ -22,14 +22,14 @@ int	ft_horizontal_wall(char *line)
 	return (ft_strlen(line) == i);
 }
 
-void ft_vertical_lines(char **map)
+void	ft_vertical_lines(char **map)
 {
-	int len;
-	int i;
+	int	len;
+	int	i;
 
 	i = 0;
 	len = ft_strlen(map[i]);
-	while(map[i])
+	while (map[i])
 	{
 		if (map[i][0] != '1' || map[i][len - 1] != '1')
 			ft_perror();
@@ -37,9 +37,9 @@ void ft_vertical_lines(char **map)
 	}
 }
 
-void ft_check_entourage(char **map)
+void	ft_check_entourage(char **map)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (map[j])
@@ -49,17 +49,16 @@ void ft_check_entourage(char **map)
 	ft_vertical_lines(map);
 }
 
-
-void ft_is_rectangular(char **lines)
+void	ft_is_rectangular(char **lines)
 {
-	int first;
-	int second;
-	int i;
+	int	first;
+	int	second;
+	int	i;
 
 	i = 0;
 	first = ft_strlen(lines[i]) - 1;
 	i++;
-	while(lines[i] != NULL)
+	while (lines[i] != NULL)
 	{
 		second = ft_strlen(lines[i]) - 1;
 		if (second != first)

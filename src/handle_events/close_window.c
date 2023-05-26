@@ -6,19 +6,19 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:31:25 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/25 18:36:56 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/26 00:53:06 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int ft_destroy(t_data *data)
+int	ft_destroy(t_data *data)
 {
 	(void)data;
 	exit (0);
 }
 
-void ft_close_window(void)
+void	ft_close_window(void)
 {
 	exit(0);
 }
@@ -38,4 +38,3 @@ int	ft_strncmp( const char *s1, const char *s2, size_t n)
 		i++;
 	return (str1[i] - str2[i]);
 }
-

@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:40:47 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/21 22:08:43 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/26 00:56:18 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	fill(char **map, t_count *count, int x, int y)
 	if (x < 0 || y < 0)
 		return ;
 	if (map[y][x] == '1' || map[y][x] == 'U' || map[y][x] == 'E')
-		return;
+		return ;
 	map[y][x] = 'U';
 	fill(map, count, x - 1, y);
 	fill(map, count, x + 1, y);
@@ -30,19 +30,21 @@ static void	flood_fill(char **map, t_count *count, t_data *data)
 	fill(map, count, data->player.x, data->player.y);
 }
 
-static void ft_is_surrounded(char **map , int x, int y)
+static void	ft_is_surrounded(char **map, int x, int y)
 {
-	if(map[y + 1][x] == '1' && map[y - 1][x] == '1' && map[y][x + 1] == '1' && map[y][x - 1] == '1')	
+	if (map[y + 1][x] == '1' && map[y - 1][x] == '1' && \
+	map[y][x + 1] == '1' && map[y][x - 1] == '1')
 	{	
 		perror("Can't access exit");
 		exit(1);
 	}
-}	
-void ft_valid_path(char **map ,t_data *data)
+}
+
+void	ft_valid_path(char **map, t_data *data)
 {
-	int i;
-	int j;
-	t_count count;
+	int		i;
+	int		j;
+	t_count	count;
 
 	i = 0;
 	flood_fill(map, &count, data);
@@ -52,7 +54,7 @@ void ft_valid_path(char **map ,t_data *data)
 		while (map[i][j] != '\0')
 		{
 			if (map[i][j] == 'E')
-				ft_is_surrounded(map , data->e.x , data->e.y);
+				ft_is_surrounded(map, data->e.x, data->e.y);
 			else if (map[i][j] == 'C')
 			{	
 				perror("Can't access collectible");
