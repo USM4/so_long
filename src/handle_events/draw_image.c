@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:28:07 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/26 02:33:12 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/26 18:34:59 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,16 @@ void	ft_xpm_files(t_data *data, int height, int width)
 	}
 }
 
+void	ft_player_img(t_data *data, int i, int j)
+{
+	if (data->facing == RIGHT)
+		mlx_put_image_to_window(data->mlx, data->mlx_new_window, \
+		data->imgs.rplayer_ptr, j * 55, i * 55);
+	if (data->facing == LEFT)
+		mlx_put_image_to_window(data->mlx, data->mlx_new_window, \
+		data->imgs.lplayer_ptr, j * 55, i * 55);
+}
+
 void	ft_push_image(t_data *data)
 {
 	int	i;
@@ -76,14 +86,7 @@ void	ft_push_image(t_data *data)
 				mlx_put_image_to_window(data->mlx, data->mlx_new_window, \
 				data->imgs.exit_ptr, j * 55, i * 55);
 			else if (data->lines[i][j] == 'P')
-			{
-				if (data->facing == RIGHT)
-					mlx_put_image_to_window(data->mlx, data->mlx_new_window, \
-					data->imgs.rplayer_ptr, j * 55, i * 55);
-				if (data->facing == LEFT)
-					mlx_put_image_to_window(data->mlx, data->mlx_new_window, \
-					data->imgs.lplayer_ptr, j * 55, i * 55);
-			}
+				ft_player_img(data, i, j);
 			j++;
 		}
 		i++;

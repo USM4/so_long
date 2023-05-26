@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:53:41 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/26 02:36:00 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:45:37 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,14 @@ extern void	ft_clean(char **arr);
 extern void	ft_perror(void);
 extern char	*ft_strnstr(const char *hay, const char *need, size_t len);
 extern char	*ft_substr(char	*s, unsigned int start, size_t len);
-extern void	ft_is_rectangular(char **lines);
-extern void	ft_check_entourage(char **lines);
+extern void	ft_is_rectangular(t_data *data);
+extern void	ft_check_entourage(t_data *data);
 extern int	ft_count_line(int file);
-extern char	**ft_rm_newline(char **lines);
-extern void	ft_validate_map(char **lines, t_data *data);
-extern char	**ft_cpy_map(char **lines, t_data data);
+extern char	**ft_rm_newline(t_data *data);
+extern void	ft_validate_map(t_data *data);
+extern char	**ft_cpy_map(t_data *data);
 extern void	ft_valid_path(char **map, t_data *data);
+extern void	ft_make_map(t_data *data, char	*filename);
 extern void	ft_move_down(t_data *data);
 extern void	ft_move_up(t_data *data);
 extern void	ft_move_right(t_data *data);
@@ -74,7 +75,11 @@ extern int	ft_handle_keys_press(int keycode, t_data *data);
 extern void	ft_push_image(t_data *data);
 extern int	ft_destroy(t_data *data);
 extern void	ft_close_window(void);
-extern void	ft_check_map_extension(char *file);
 extern void	ft_xpm_files(t_data *data, int height, int width);
+extern void	ft_coin_error(void);
+extern void	ft_exit_error(void);
+extern void	ft_player_error(void);
+extern void	ft_expected_errors(t_data *data, t_count *characters);
+extern void	ft_perror(void);
 
 #endif
