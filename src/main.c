@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 21:04:29 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/26 20:51:27 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/27 16:07:41 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int ac, char **argv)
 		perror("mlx failure");
 		exit(1);
 	}
-	data.facing = LEFT;
+	data.facing = RIGHT;
 	ft_xpm_files(&data, data.width * 55, data.height * 55);
 	ft_push_image(&data);
 	if (!mlx_hook(data.mlx_new_window, 2, 0, ft_handle_keys_press, &data) \

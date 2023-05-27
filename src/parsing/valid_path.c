@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:40:47 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/26 00:56:18 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/27 16:24:05 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static void	flood_fill(char **map, t_count *count, t_data *data)
 }
 
 static void	ft_is_surrounded(char **map, int x, int y)
-{
-	if (map[y + 1][x] == '1' && map[y - 1][x] == '1' && \
-	map[y][x + 1] == '1' && map[y][x - 1] == '1')
-	{	
+{	
+	if (map[y + 1][x] != 'U' && map[y - 1][x] != 'U' && \
+	map[y][x + 1] != 'U' && map[y][x - 1] != 'U')
+	{
 		perror("Can't access exit");
 		exit(1);
 	}

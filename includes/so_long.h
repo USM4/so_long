@@ -6,7 +6,7 @@
 /*   By: oredoine <oredoine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:53:41 by oredoine          #+#    #+#             */
-/*   Updated: 2023/05/26 20:45:37 by oredoine         ###   ########.fr       */
+/*   Updated: 2023/05/27 15:55:57 by oredoine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_data {
 	char			**lines;
 	void			*mlx_new_window;
 	void			*mlx;
+	int				counter;
 	t_point			player;
 	int				collectible;
 	t_exit			e;
@@ -58,6 +59,7 @@ typedef struct s_count{
 extern void	ft_clean(char **arr);
 extern void	ft_perror(void);
 extern char	*ft_strnstr(const char *hay, const char *need, size_t len);
+extern void	ft_putnbr_fd(int n, int fd);
 extern char	*ft_substr(char	*s, unsigned int start, size_t len);
 extern void	ft_is_rectangular(t_data *data);
 extern void	ft_check_entourage(t_data *data);
