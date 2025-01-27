@@ -5,7 +5,7 @@ HEADERS= ./includes/so_long.h ./includes/get_next_line.h
 SOURCES = ./src/main.o ./src/util/util.o ./src/util/ft_strnstr.o ./src/util/ft_putnbr_fd.o ./src/gnl/get_next_line.o ./src/gnl/get_next_line_utils.o ./src/parsing/map_contains.o ./src/parsing/check_walls.o \
 ./src/parsing/valid_path.o ./src/parsing/error_handler.o ./src/parsing/parsing.o ./src/handle_events/move_down.o ./src/handle_events/move_up.o ./src/handle_events/move_left.o  \
 ./src/handle_events/move_right.o ./src/handle_events/draw_image.o ./src/handle_events/close_window.o 
-
+  
 all : $(NAME)
 
 $(NAME) : $(SOURCES)
